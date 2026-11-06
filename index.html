@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6ef">
+  <meta name="description" content="中学英語から高校三年生までの英文法を、クイズ感覚で楽しく学ぼう。">
+  <title>Grammar Quest — 英文法クエスト</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Grammar Quest ホーム"><span class="brand-mark">G<span>Q</span></span><span>grammar<span class="brand-light">quest</span></span></a>
+    <nav class="nav-links" aria-label="メインナビゲーション"><a href="#how">遊び方</a><a href="#topics">学べる文法</a><a href="#about">このサイトについて</a></nav>
+    <button class="sound-toggle" id="soundToggle" aria-pressed="false" title="効果音の切り替え"><span class="sound-icon">♪</span><span>サウンド OFF</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="sparkle">✳</span> ENGLISH GRAMMAR ADVENTURE</div>
+        <h1>文法の冒険へ、<br><span>出発しよう。</span></h1>
+        <p class="hero-lead">クイズに答えて、英語の「わかった！」を集めよう。<br class="desktop-only">中学英語から高校英文法まで、遊びながら身につく。</p>
+        <div class="hero-facts"><span><i class="fact-icon">✦</i> 1回約3分</span><span><i class="fact-icon">▱</i> いつでも無料</span><span><i class="fact-icon">◎</i> スマホ対応</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="float-card card-a">is / am / are <span>be動詞</span></div>
+        <div class="float-card card-b">have + 過去分詞 <span>現在完了</span></div>
+        <div class="float-card card-c">✦ XP + 20</div>
+        <div class="book"><div class="book-cover"><div class="book-label">ENGLISH<br><b>GRAMMAR</b><br>QUEST</div><div class="book-star">✦</div><div class="book-leaf">〰</div></div><div class="book-pages"></div></div>
+        <div class="hero-doodle doodle-one">✳</div><div class="hero-doodle doodle-two">✦</div>
+      </div>
+    </section>
+
+    <section class="game-section" id="play">
+      <div class="section-heading"><div><div class="eyebrow"><span class="heading-dot"></span> YOUR DAILY QUEST</div><h2>今日のクエスト</h2></div><div class="daily-badge"><span>☀</span> きょうも一歩ずつ</div></div>
+      <div class="game-layout">
+        <aside class="quest-sidebar">
+          <div class="level-card"><div class="level-top"><div class="level-icon">🌱</div><div><div class="level-caption">YOUR LEVEL</div><div class="level-name">Grammar Rookie</div></div></div><div class="xp-row"><span>LEVEL 1</span><span id="xpLabel">0 / 100 XP</span></div><div class="xp-track"><div class="xp-fill" id="xpFill"></div></div><div class="level-foot">クイズに正解してXPをためよう</div></div>
+          <div class="stats-card"><div class="stats-title">TODAY'S STATS <span>↗</span></div><div class="stat-row"><span><i class="stat-dot purple"></i>正解数</span><b id="correctStat">0 <small>問</small></b></div><div class="stat-row"><span><i class="stat-dot green"></i>連続正解</span><b id="streakStat">0 <small>回</small></b></div><div class="stat-row"><span><i class="stat-dot orange"></i>獲得XP</span><b id="totalXpStat">0 <small>XP</small></b></div></div>
+          <div class="side-note"><span>💡</span><p>まちがえても大丈夫。<br>解説を読めば次はきっと解ける！</p></div>
+        </aside>
+        <div class="quiz-card">
+          <div class="quiz-top"><div class="quest-tag"><span>⚡</span> GRAMMAR QUIZ</div><div class="question-count"><span id="questionNumber">01</span><span class="count-divider">/</span><span id="questionTotal">05</span></div></div>
+          <div class="quiz-progress"><div id="quizProgress"></div></div>
+          <div class="quiz-meta"><span class="grade-chip" id="gradeChip">中学1年</span><span class="topic-label" id="topicLabel">be動詞</span><span class="difficulty"><span>●</span> 初級</span></div>
+          <div class="question-area"><div class="question-hint">空欄に入る正しい語を選ぼう</div><h3 id="questionText">読み込み中…</h3><p class="translation" id="translationText"></p></div>
+          <div class="answers" id="answers" role="group" aria-label="答えの選択肢"></div>
+          <div class="feedback" id="feedback" aria-live="polite" hidden></div>
+          <div class="quiz-bottom"><span class="keyboard-hint">選択肢をタップして回答 <kbd>1</kbd>–<kbd>4</kbd></span><button class="next-button" id="nextButton" disabled>回答を選ぶ <span>→</span></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topics-section" id="topics"><div class="section-heading"><div><div class="eyebrow"><span class="heading-dot"></span> EXPLORE GRAMMAR</div><h2>文法の世界を探検しよう</h2></div><p class="section-aside">基礎から入試レベルまで、<br>少しずつステップアップ。</p></div><div class="topic-grid"><button class="topic-card active" data-filter="all"><span class="topic-icon mint">A</span><span class="topic-info"><b>ぜんぶ挑戦</b><small>全学年から出題</small></span><span class="topic-arrow">↗</span></button><button class="topic-card" data-filter="middle"><span class="topic-icon peach">✎</span><span class="topic-info"><b>中学英語</b><small>基礎をしっかり</small></span><span class="topic-arrow">↗</span></button><button class="topic-card" data-filter="high1"><span class="topic-icon lavender">✦</span><span class="topic-info"><b>高校1年</b><small>文型・時制・助動詞</small></span><span class="topic-arrow">↗</span></button><button class="topic-card" data-filter="high2"><span class="topic-icon yellow">☄</span><span class="topic-info"><b>高校2年</b><small>分詞・関係詞・仮定法</small></span><span class="topic-arrow">↗</span></button><button class="topic-card" data-filter="high3"><span class="topic-icon blue">⌁</span><span class="topic-info"><b>高校3年</b><small>総合・入試レベル</small></span><span class="topic-arrow">↗</span></button></div></section>
+
+    <section class="how-section" id="how"><div class="how-intro"><div class="eyebrow"><span class="heading-dot"></span> HOW TO PLAY</div><h2>遊び方は、<br>とってもシンプル。</h2><p>毎日ちょっとずつ。続けるほど、英文法が自分のものになっていく。</p></div><div class="steps"><div class="step"><div class="step-number">01</div><div class="step-icon">🎯</div><h3>クエストを選ぶ</h3><p>学年や文法テーマから、今の自分にぴったりの問題に挑戦。</p></div><div class="step"><div class="step-number">02</div><div class="step-icon">💬</div><h3>答えて、解説を読む</h3><p>正解でも不正解でも、ポイントを解説。理解がぐっと深まる。</p></div><div class="step"><div class="step-number">03</div><div class="step-icon">🌟</div><h3>XPを集めてレベルアップ</h3><p>正解でXPをゲット。連続正解を目指して、次のレベルへ！</p></div></div></section>
+    <section class="cta-band"><div class="cta-star">✳</div><div><h2>さあ、最初のクエストへ。</h2><p>一問解けば、もう冒険は始まってる。</p></div><a href="#play" class="cta-button">クエストに戻る <span>↑</span></a></section>
+    <section class="about-section" id="about"><span class="about-mark">GQ</span><p><b>Grammar Quest</b> は、英語を学ぶみんなのための小さな冒険サイト。<br>自分のペースで、何度でも挑戦しよう。</p><span class="about-free">FREE TO PLAY · LEARN AT YOUR PACE</span></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#top"><span class="brand-mark">G<span>Q</span></span><span>grammar<span class="brand-light">quest</span></span></a><span>© 2025 Grammar Quest</span><a href="#top">BACK TO TOP ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
